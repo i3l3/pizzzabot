@@ -46,7 +46,7 @@ def sendMessage(message, openTalkName):
 if __name__ == '__main__':
     with open('.\\secret.json') as f:
         json_data = json.load(f)
-    openTalkTitle = json_data['openTalkTitle']
+    openTalkTitle = json_data['talkTitle']
     today = datetime.today()
     menuList = crawlLunchMenu(json_data['schoolCode'], today.year, today.month, today.day)
     menu = '<오늘의 급식>\n\n'
