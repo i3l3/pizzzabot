@@ -20,23 +20,23 @@ def post(content, accessToken, bandKey, do_push=True):
     today = datetime.today()
     url = 'https://openapi.band.us/v2.2/band/post/create?access_token={0}&band_key={1}&content={2}&do_push={3}'.format(accessToken, bandKey, content, do_push)
     failed = 0
-    response = requests.get(url)
+    response = requests.post(url)
     result = json.load(response.text)['result_code'] == 1
     with open('.\\' + str(today.year) + '-' + str(today.month) + '-' + str(today.day) + '-' + str(today.hour) + ':' + str(today.minute) + ':' + str(today.second) + '.log', 'a+') as log:
         if not result:
             failed += 1
             log.write('Request failed; Try again. ({} Failed)'.format(failed))
-            response = requests.get(url)
+            response = requests.post(url)
             result = json.load(response.text)['result_code'] == 1
             if not result:
                 failed += 1
                 log.write('Request failed; Try again. ({} Failed)'.format(failed))
-                response = requests.get(url)
+                response = requests.post(url)
                 result = json.load(response.text)['result_code'] == 1
                 if not result:
                     failed += 1
                     log.write('Request failed; Try again. ({} Failed)'.format(failed))
-                    response = requests.get(url)
+                    response = requests.post(url)
                     result = json.load(response.text)['result_code'] == 1
 
 
