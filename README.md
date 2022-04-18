@@ -31,10 +31,20 @@
 ------------
 
 # 2. 밴드 피자봇
-개발중
 
 ## 설명
-개발중
+밴드 피자봇은 네이버 밴드가 제공하는 Open API를 이용하여 만들어 졌습니다.
 
 ## secrets.json 작성법
-개발중
+```json
+{
+  "accessKey": "",
+  "bandKey": "",
+  "doPush": "",
+  "schoolCode": ""
+}
+```
+```schoolCode```는 schoolmenukr.ml/code/app 에서 찾으실 수 있습니다.
+```accessKey```는 https://developers.band.us/develop/guide/api/get_authorization_code_from_user 에서, 
+```bandKey```는 https://developers.band.us/develop/guide/api/get_bands 에서 얻으실 수 있습니다.
+```doPush```는 사용자들에게 알림을 보낼지 결정하는 것입니다. true나 false를 입력합니다.
