@@ -46,7 +46,7 @@ def sendMessage(message, openTalkName):
 if __name__ == '__main__':
     with open('.\\secret.json') as f:
         json_data = json.load(f)
-    openTalkTitle = json_data['talkTitle']
+    talkTitle = json_data['talkTitle']
     today = datetime.today()
     menuList = crawlLunchMenu(json_data['schoolCode'], today.year, today.month, today.day)
     menu = '<오늘의 급식>\n\n'
@@ -56,9 +56,9 @@ if __name__ == '__main__':
                   '10.돼지고기, 11.복숭아, 12.토마토, 13.아황산염, 14.호두, 15.닭고기, 16.쇠고기, 17.오징어, 18.조개류(굴,전복,홍합 등)\n\n이 서비스는 MIT ' \
                   '라이선스로 https://github.com/i3l3/PizzzaBot 에서 소스 코드를 배포 중 입니다.\nBy i3l3(한기동) '
 
-    findWindow(openTalkTitle)
-    sendMessage(menu, openTalkTitle)
+    findWindow(talkTitle)
+    sendMessage(menu, talkTitle)
     with open('.\\' + str(today.year) + '-' + str(today.month) + '-' + str(today.day) + '-' + str(today.hour) + ':' + str(today.minute) + ':' + str(today.second) + '.log', 'a+') as log:
         log.write('Today\'s menu: ' + menu)
-        log.write('Open Talk Title: ' + openTalkTitle)
+        log.write('Open Talk Title: ' + talkTitle)
         log.write('School Code: ' + json_data['schoolCode'])
