@@ -28,6 +28,8 @@
 여기서 ```talkName```은 채팅방 이름을 작성하면 됩니다.
 ```schoolCode```는 schoolmenukr.ml/code/app 에서 찾으실 수 있습니다.
 
+파일은 UTF-8로 저장해 주세요.
+
 ------------
 
 # 2. 밴드 피자봇
@@ -48,3 +50,5 @@
 ```accessKey```는 https://developers.band.us/develop/guide/api/get_authorization_code_from_user 에서, 
 ```bandKey```는 https://developers.band.us/develop/guide/api/get_bands 에서 얻으실 수 있습니다.
 ```doPush```는 사용자들에게 알림을 보낼지 결정하는 것입니다. true나 false를 입력합니다.
+
+파일은 UTF-8로 저장해 주세요.
