@@ -21,23 +21,6 @@ def post(content, accessToken, bandKey, do_push=True):
     url = 'https://openapi.band.us/v2.2/band/post/create?access_token={0}&band_key={1}&content={2}&do_push={3}'.format(accessToken, bandKey, content, do_push)
     failed = 0
     response = requests.post(url)
-    result = json.load(response.text)['result_code'] == 1
-    with open('.\\' + str(today.year) + '-' + str(today.month) + '-' + str(today.day) + '-' + str(today.hour) + ':' + str(today.minute) + ':' + str(today.second) + '.log', 'a+') as log:
-        if not result:
-            failed += 1
-            log.write('Request failed; Try again. ({} Failed)'.format(failed))
-            response = requests.post(url)
-            result = json.load(response.text)['result_code'] == 1
-            if not result:
-                failed += 1
-                log.write('Request failed; Try again. ({} Failed)'.format(failed))
-                response = requests.post(url)
-                result = json.load(response.text)['result_code'] == 1
-                if not result:
-                    failed += 1
-                    log.write('Request failed; Try again. ({} Failed)'.format(failed))
-                    response = requests.post(url)
-                    result = json.load(response.text)['result_code'] == 1
 
 
 if __name__ == '__main__':
@@ -57,6 +40,3 @@ if __name__ == '__main__':
                   '라이선스로 https://github.com/i3l3/PizzzaBot 에서 소스 코드를 배포 중 입니다.\nBy i3l3(한기동) '
 
     post(menu, accessKey, bandKey, doPush)
-    with open('.\\' + str(today.year) + '-' + str(today.month) + '-' + str(today.day) + '-' + str(today.hour) + ':' + str(today.minute) + ':' + str(today.second) + '.log', 'a+') as log:
-        log.write('Today\'s menu: ' + menu)
-        log.write('School Code: ' + json_data['schoolCode'])
