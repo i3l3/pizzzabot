@@ -44,7 +44,7 @@ def sendMessage(message, openTalkName):
 
 
 if __name__ == '__main__':
-    with open('.\\secret.json') as f:
+    with open('.\\secrets.json', encoding='utf-8-sig') as f:
         json_data = json.load(f)
     talkTitle = json_data['talkTitle']
     today = datetime.today()

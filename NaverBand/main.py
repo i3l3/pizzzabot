@@ -41,7 +41,7 @@ def post(content, accessToken, bandKey, do_push=True):
 
 
 if __name__ == '__main__':
-    with open('.\\secret.json') as f:
+    with open('.\\secrets.json', encoding='utf-8-sig') as f:
         json_data = json.load(f)
     accessKey = json_data['accessKey']
     bandKey = json_data['bandKey']
