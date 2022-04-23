@@ -58,7 +58,3 @@ if __name__ == '__main__':
 
     findWindow(talkTitle)
     sendMessage(menu, talkTitle)
-    with open('.\\' + str(today.year) + '-' + str(today.month) + '-' + str(today.day) + '-' + str(today.hour) + ':' + str(today.minute) + ':' + str(today.second) + '.log', 'a+') as log:
-        log.write('Today\'s menu: ' + menu)
-        log.write('Open Talk Title: ' + talkTitle)
-        log.write('School Code: ' + json_data['schoolCode'])
